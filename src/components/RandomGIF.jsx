@@ -10,7 +10,7 @@ const RandomGIF = () => {
             {
                 loading ? (<Spinner />) : (<img className='rounded-lg' src={gif} alt="Random GIF" />)
             }
-            <button className='w-11/12 rounded-xl p-2 bg-white' onClick={fetchGIF}>Generate</button>
+            <button className='w-11/12 rounded-xl p-2 bg-white font-bold text-2xl' onClick={fetchGIF}>Generate</button>
         </div>
     )
 }

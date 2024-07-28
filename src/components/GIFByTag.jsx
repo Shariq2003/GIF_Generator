@@ -14,7 +14,7 @@ const GIFByTag = () => {
             <input className='w-11/12 rounded-lg p-2 text-center text-xl' type="text" onChange={(event)=>{
                 setTag(event.target.value);
             }}/>
-            <button className='w-11/12 rounded-xl p-2 bg-white' onClick={fetchGIF}>Generate</button>
+            <button className='w-11/12 rounded-xl p-2 bg-white font-bold text-2xl' onClick={fetchGIF}>Generate</button>
         </div>
     )
 }
