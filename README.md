@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🎞️ GIF Generator
 
-## Available Scripts
+**Need a GIF? Get a completely random one — or type a topic and get a random GIF about it. Powered by the GIPHY API.**
 
-In the project directory, you can run:
+[![Live Demo](https://img.shields.io/badge/Live_Demo-gif--generator--sand.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://gif-generator-sand.vercel.app)
 
-### `npm start`
+![React](https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white)
+![GIPHY](https://img.shields.io/badge/GIPHY_API-FF6666?style=flat-square&logo=giphy&logoColor=white)
+![GitHub last commit](https://img.shields.io/github/last-commit/Shariq2003/GIF_Generator?style=flat-square)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Features](#-features) · [How it works](#-how-it-works) · [Getting Started](#-getting-started) · [Structure](#-project-structure)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+</div>
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Features
 
-### `npm run build`
+| | Feature |
+|---|---|
+| 🎲 | **Random GIF** — one click, any GIF |
+| 🏷️ | **GIF by tag** — type *cats*, *coding*, *dance*… and get a matching random GIF |
+| ♻️ | **Reusable `useGIF` custom hook** shared by both cards |
+| ⏳ | **Loading spinner** while a GIF is on its way |
+| 🎨 | **Tailwind CSS** styling |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🔄 How it works
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```mermaid
+flowchart LR
+    A["RandomGIF card"] --> H["useGIF(tag)"]
+    B["GIFByTag card<br/>(user types a tag)"] --> H
+    H -- "axios GET /v1/gifs/random?tag=…" --> G[("GIPHY API")]
+    G -- "images.downsized_large.url" --> H
+    H --> R["Render GIF<br/>(spinner while loading)"]
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Getting Started
 
-### `npm run eject`
+1. **Clone & install**
+   ```bash
+   git clone https://github.com/Shariq2003/GIF_Generator.git
+   cd GIF_Generator
+   npm install
+   ```
+2. **Get a free API key** from the [GIPHY Developer Dashboard](https://developers.giphy.com/dashboard/).
+3. **Create a `.env`** file in the project root:
+   ```env
+   REACT_APP_GIPHY_API_KEY=your_giphy_api_key
+   ```
+4. **Run it**
+   ```bash
+   npm start          # http://localhost:3000
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📁 Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<details>
+<summary><b>Expand tree</b></summary>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```text
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── RandomGIF.jsx
+│   ├── GIFByTag.jsx
+│   └── Spinner.jsx
+├── hooks/
+│   └── useGIF.jsx     # fetch logic shared by both cards
+└── App.js
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+</details>
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<div align="center">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Built by **[Shariq](https://github.com/Shariq2003)** · [LinkedIn](https://www.linkedin.com/in/shariq-sd)
 
-### Code Splitting
+⭐ If you like this project, consider giving it a star!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</div>
